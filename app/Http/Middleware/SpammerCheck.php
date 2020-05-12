@@ -19,6 +19,8 @@ class SpammerCheck
 
         if($referer)
         {
+            \Log::info('referer', compact('referer'));
+
             if($referer === 'https://rirofiwal.cf')
             {
                 return response()->json(['DENIED'],403);
