@@ -22,11 +22,11 @@ class SpammerCheck
 
         if($referer)
         {
-            \Log::info('contains:rirofiwal', [
-                'contains' => Str::contains($referer, 'rirofiwal')
+            \Log::info('contains:hellaciousj', [
+                'contains' => Str::contains($referer, 'hellaciousj')
             ]);
 
-            if(Str::contains($referer, 'rirofiwal'))
+            if(Str::contains($referer, 'hellaciousj'))
             {
                 return response()->json(['DENIED'],403);
             }
