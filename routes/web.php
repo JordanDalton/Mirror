@@ -15,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    return csrf_token();
+    return [
+        'domain' => request()->getHttpHost(),
+        'csrf_token' => csrf_token()
+    ];
 });
