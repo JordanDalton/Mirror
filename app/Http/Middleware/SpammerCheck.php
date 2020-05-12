@@ -33,7 +33,7 @@ class SpammerCheck
 
             if($contains_bad_actors)
             {
-                return response()->json(['DENIED' => $referer],403);
+                //return response()->json(['DENIED' => $referer],403);
             }
         }
 
