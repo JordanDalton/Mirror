@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Str;
 
 class SpammerCheck
 {
@@ -21,7 +22,11 @@ class SpammerCheck
 
         if($referer)
         {
-            if($referer === 'https://rirofiwal.cf')
+            \Log::info('contains:rirofiwal', [
+                'contains' => Str::contains($referer, 'rirofiwal')
+            ]);
+
+            if(Str::contains($referer, 'rirofiwal'))
             {
                 return response()->json(['DENIED'],403);
             }
