@@ -20,15 +20,20 @@ class SpammerCheck
 
         \Log::info('referer', compact('referer'));
 
+        $bad_actors = [
+            'rirofiwal',
+            'hellaciousj'
+        ];
+
         if($referer)
         {
-            \Log::info('contains:hellaciousj', [
-                'contains' => Str::contains($referer, 'hellaciousj')
-            ]);
+            $contains_bad_actors = Str::contains($referer, $bad_actors);
 
-            if(Str::contains($referer, 'hellaciousj'))
+            \Log::info('contains:'.$referer, compact('contains_bad_actors'));
+
+            if($contains_bad_actors)
             {
-                return response()->json(['DENIED'],403);
+                return response()->json(['DENIED' => $referer],403);
             }
         }
 
